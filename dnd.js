@@ -443,7 +443,7 @@ let spellList = [
 let lvl = 4;
 
 let columns = [
-    'Name', 'Variations', 'Effect', 'Casting Time', 'Duration', 'Range', 'Target', 'Saving Throw', 'Spell Resistance'
+    'Name', 'Variations', 'Effect', 'Casting Time', 'Duration', 'Range', 'Target', 'Saving Throw', 'Spell Resistance', 'Components'
 ]
 
 let targetIcons={
@@ -456,6 +456,21 @@ let targetIcons={
     'Item':'far fa-cube'
 }
 
+let componentIcons={
+    'V':'far fa-lips',
+    'S':'far fa-hand-paper',
+    'M':'far fa-gem',
+    'DF':'far fa-cross'
+}
+
+$('#lvl').keyup(function(){
+    console.log('ch')
+    if(!isNaN($('#lvl')[0].value) && ($('#lvl')[0].value!='')){
+        lvl=parseInt($('#lvl')[0].value);
+        fillTable();
+    }
+})
+
 spellList.sort(function(a,b){
     return a.level>b.level?1:b.level>a.level?-1:a.name<b.name?-1:1;
 })
@@ -463,6 +478,7 @@ fillTable();
 
 function fillTable() {
     let $table = $('#spells');
+    $table.empty();
     let str=''
     str+='<tr>';
     for (let c of columns) {
@@ -487,6 +503,11 @@ function fillTable() {
             str+='<td>' + targets + '</td>'
             str+='<td>' + s.savingThrow + '</td>'
             str+='<td>' + s.spellRes + '</td>'
+            let comp='';
+            for(let c of s.component){
+                comp+='<i class="'+componentIcons[c]+'"></i>';
+            }
+            str+='<td>' + comp + '</td>'
             str+='</tr>'
             
         }
@@ -496,7 +517,6 @@ function fillTable() {
 
 function parseLvl(string){
     n=string.search('lvl')
-    console.log(string)
     while(n>-1){
         let before=string.slice(0,n)
         let after=string.slice(n+3,string.length)
@@ -507,9 +527,7 @@ function parseLvl(string){
             // skip letters (unit)
             let a=true;
             let s=0;
-            console.log(before)
             while(a && s<before.length-1){
-                console.log(before.charAt(before.length-s-2))
                 if(isNaN(before.charAt(before.length-s-2))){
                     s++
                 }else{
@@ -519,7 +537,6 @@ function parseLvl(string){
 
             // get number
             let unit=before.slice(before.length-s-1,before.length-1)
-            console.log(unit)
             a=true
             num='';
             while(a && s<before.length-1){

@@ -24,7 +24,7 @@ body{
 .dur{
     display:inline-block;
     color:white;
-    padding:2px;
+    padding:2px 4px;
     border-radius:3px;
 }
 
@@ -42,4 +42,19 @@ body{
 
 .dur.long{
     background-color:#5d9cec;
+}
+
+i.target{
+    text-align:center;
+    width:20px;
+}
+
+i.component{
+    text-align:center;
+    width:20px;
+}
+
+i.resist{
+    text-align:center;
+    width:20px;
 }

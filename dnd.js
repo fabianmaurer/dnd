@@ -30,7 +30,7 @@ let spellList = [
             'Armor',
             'Shield'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['S', 'M']
@@ -93,7 +93,7 @@ let spellList = [
             'Armor',
             'Shield'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['V', 'S', 'M']
@@ -112,7 +112,7 @@ let spellList = [
         target: [
             'Construct'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'Yes',
         level: 1,
         component: ['V', 'S']
@@ -131,7 +131,7 @@ let spellList = [
         target: [
             'Item'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['V', 'M']
@@ -209,7 +209,7 @@ let spellList = [
         target: [
             'Construct'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['V', 'S']
@@ -228,7 +228,7 @@ let spellList = [
         target: [
             'Item'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['S', 'M']
@@ -266,7 +266,7 @@ let spellList = [
         target: [
             'Item'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['S', 'M']
@@ -285,7 +285,7 @@ let spellList = [
         target: [
             'Item'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['S', 'XP']
@@ -356,7 +356,7 @@ let spellList = [
         target: [
             'Weapon'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['S', 'M']
@@ -376,7 +376,7 @@ let spellList = [
             'Armor',
             'Shield'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['S', 'M']
@@ -395,7 +395,7 @@ let spellList = [
         target: [
             'Item'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['V', 'S']
@@ -433,7 +433,7 @@ let spellList = [
         target: [
             'Potion'
         ],
-        savingThrow: '-',
+        savingThrow: '',
         spellRes: 'No',
         level: 1,
         component: ['S', 'M']
@@ -445,6 +445,15 @@ let lvl = 1;
 let columns = [
     'Name', 'Variations', 'Effect', 'Casting Time', 'Duration', 'Range', 'Target', 'Saving Throw', 'Spell Resistance', 'Components'
 ]
+
+let centered={
+    
+}
+
+let resistanceIcons={
+    'Yes':'far fa-check',
+    'No':'far fa-times'
+}
 
 let targetIcons={
     'Armor':'far fa-helmet-battle',
@@ -516,14 +525,14 @@ function fillTable() {
             str+='<td>' + s.range + '</td>'
             let targets='';
             for(let t of s.target){
-                targets+='<i class="'+targetIcons[t]+'"></i>';
+                targets+='<i class="target '+targetIcons[t]+'"></i>';
             }
             str+='<td>' + targets + '</td>'
             str+='<td>' + s.savingThrow + '</td>'
-            str+='<td>' + s.spellRes + '</td>'
+            str+='<td><i class="resist ' + resistanceIcons[s.spellRes] + '"></i></td>'
             let comp='';
             for(let c of s.component){
-                comp+='<i class="'+componentIcons[c]+'"></i>';
+                comp+='<i class="component '+componentIcons[c]+'"></i>';
             }
             str+='<td>' + comp + '</td>'
             str+='</tr>'
@@ -544,6 +553,7 @@ function getDurationDiv(string){
 }
 
 function parseLvl(string){
+    console.log(string)
     n=string.search('lvl')
     while(n>-1){
         let before=string.slice(0,n)
@@ -568,8 +578,7 @@ function parseLvl(string){
                 
                 max=parseInt(num2)
             }
-            lvl=Math.min(max,lvl)
-            string=before+lvl+after;
+            string=before+Math.min(max,lvl)+after;
         }else if(pre=='/'){
             // skip letters (unit)
             let a=true;
@@ -615,8 +624,12 @@ function parseLvl(string){
                 
                 max=parseInt(num2)
             }
-            lvl=Math.min(max,lvl)
-            let l=Math.floor(parseFloat(num)*lvl);
+            console.log('---')
+            console.log(max)
+            console.log(lvl)
+            console.log(parseFloat(num))
+            let l=Math.floor(parseFloat(num)*Math.min(max,lvl));
+            console.log(l)
             
             string=before.slice(0,before.length-s-1)+l+unit+after;
             

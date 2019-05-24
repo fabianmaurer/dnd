@@ -48,6 +48,44 @@ td.noborder{
     background-color:#5d9cec;
 }
 
+.cast i{
+    background-color:white;
+    border-radius:3px;
+    padding:2px;
+    margin:2px 2px 2px 0;
+}
+
+.cast{
+    display:inline-block;
+    color:white;
+    padding:2px 4px;
+    border-radius:3px;
+}
+
+.cast.fast{
+    background-color:#27c24c;
+}
+
+.cast.medium{
+    background-color:#37bc9b;
+}
+
+.cast.slow{
+    background-color:#7266ba;
+}
+
+.cast.fast i{
+    color:#27c24c;
+}
+
+.cast.medium i{
+    color:#37bc9b;
+}
+
+.cast.slow i{
+    color:#7266ba;
+}
+
 i.target{
     text-align:center;
     width:20px;

@@ -786,7 +786,7 @@ let columns = [
     'Level','Name', 'Variations', 'Effect', 'Casting Time', 'Duration', 'Range', 'Target', 'Saving Throw', 'Spell Resistance', 'Components'
 ]
 
-let centered=['Level', 'Target', 'Saving Throw', 'Spell Resistance', 'Components']
+let centered=['Level', 'Target', 'Casting Time', 'Duration','Saving Throw', 'Spell Resistance', 'Components']
 
 let resistanceIcons={
     'Yes':'far fa-check',
@@ -817,6 +817,20 @@ let unitMap={
     'rd':'short',
     'min':'medium',
     'h':'long'
+}
+
+let castMap={
+    'rd':'medium',
+    'sa':'fast',
+    'h':'slow',
+    'min':'slow'
+}
+
+let castMap2={
+    'rd':'far fa-frog',
+    'sa':'far fa-rabbit-fast',
+    'h':'far fa-turtle',
+    'min':'far fa-turtle'
 }
 
 let levelMap={
@@ -879,10 +893,11 @@ function fillTable() {
             str+='<td style="max-width:200px">' + v.name + '</td>'
             let e=parseLvl(v.effect)
             str+='<td style="max-width:200px">' + e + '</td>'
-            str+='<td>' + s.castTime + '</td>'
+            let c=getCastDiv(s.castTime)
+            str+='<td class="centered" style="min-width:90px">' + c + '</td>'
             let d=parseLvl(s.duration)
             d=getDurationDiv(d);
-            str+='<td>' + d + '</td>'
+            str+='<td class="centered">' + d + '</td>'
             let r=parseLvl(s.range)
             str+='<td>' + r + '</td>'
             let targets='';
@@ -902,6 +917,16 @@ function fillTable() {
         }
     }
     $table.append(str)
+}
+
+function getCastDiv(string){
+    let types=['rd','min','h','sa']
+    for(let type of types){
+        if(string.search(type)!=-1){
+            return '<div class="cast '+castMap[type]+'"><i class="'+castMap2[type]+'"></i>'+string+'</div>';
+        }
+    }
+    return string;
 }
 
 function getDurationDiv(string){

@@ -7,12 +7,16 @@ body{
 }
 
 #spells td{
-    padding:4px;
+    padding:4px 8px;
 }
 
 #spells .first td{
     padding-top:8px;
     border-top:1px solid #ccc;
+}
+
+td.noborder{
+    border-top:none !important;
 }
 
 #lvl{
@@ -57,4 +61,45 @@ i.component{
 i.resist{
     text-align:center;
     width:20px;
+}
+
+.level{
+    display:inline-block;
+    color:white;
+    padding:2px 4px;
+    border-radius:3px;
+    background-color:#5d9cec;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.level.l0{
+    background-color:#131e26;
+}
+
+.level.l1{
+    background-color:#27c24c;
+}
+
+.level.l2{
+    background-color:#ff902b;
+}
+
+.level.l3{
+    background-color:#f05050;
+}
+
+.level.l4{
+    background-color:#f532e5;
+}
+
+.level.l5{
+    background-color:#7266ba;
+}
+
+.level.l6{
+    background-color:#5d9cec;
+}
+
+.centered{
+    text-align: center;
 }

@@ -25,7 +25,7 @@ let spellList = [
         ],
         castTime: '1min',
         duration: '10min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Armor',
             'Shield'
@@ -45,7 +45,7 @@ let spellList = [
         ],
         castTime: '1rd',
         duration: '10min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Item'
         ],
@@ -68,7 +68,7 @@ let spellList = [
         ],
         castTime: '1rd',
         duration: '10min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Weapon',
             'Shield'
@@ -88,7 +88,7 @@ let spellList = [
         ],
         castTime: '1h',
         duration: 'instant',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Armor',
             'Shield'
@@ -108,7 +108,7 @@ let spellList = [
         ],
         castTime: '1sa',
         duration: 'instant',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Construct'
         ],
@@ -127,7 +127,7 @@ let spellList = [
         ],
         castTime: '1sa',
         duration: '10min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Item'
         ],
@@ -146,7 +146,7 @@ let spellList = [
         ],
         castTime: '1sa',
         duration: '30min',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Pebbles'
         ],
@@ -165,7 +165,7 @@ let spellList = [
         ],
         castTime: '1sa',
         duration: '1h/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Armor',
             'Shield'
@@ -185,10 +185,9 @@ let spellList = [
         ],
         castTime: '1sa',
         duration: '1min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
-            'Armor',
-            'Shield'
+            'Weapon'
         ],
         savingThrow: 'Will',
         spellRes: 'Yes',
@@ -205,7 +204,7 @@ let spellList = [
         ],
         castTime: '1sa',
         duration: 'instant',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Construct'
         ],
@@ -224,7 +223,7 @@ let spellList = [
         ],
         castTime: '1rd',
         duration: '10min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Item'
         ],
@@ -243,7 +242,7 @@ let spellList = [
         ],
         castTime: '1sa',
         duration: '1min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Creature'
         ],
@@ -262,7 +261,7 @@ let spellList = [
         ],
         castTime: '1rd',
         duration: '10min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Item'
         ],
@@ -281,7 +280,7 @@ let spellList = [
         ],
         castTime: '1min',
         duration: '1h/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Item'
         ],
@@ -352,7 +351,7 @@ let spellList = [
         ],
         castTime: '1min',
         duration: '10min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Weapon'
         ],
@@ -371,7 +370,7 @@ let spellList = [
         ],
         castTime: '1min',
         duration: '10min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Armor',
             'Shield'
@@ -391,7 +390,7 @@ let spellList = [
         ],
         castTime: '1min',
         duration: '10min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Item'
         ],
@@ -410,7 +409,7 @@ let spellList = [
         ],
         castTime: '1rd',
         duration: '1rd/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Scroll'
         ],
@@ -429,7 +428,7 @@ let spellList = [
         ],
         castTime: '1min',
         duration: '10min/lvl',
-        range: 'touch',
+        range: 'Touch',
         target: [
             'Potion'
         ],
@@ -437,18 +436,357 @@ let spellList = [
         spellRes: 'No',
         level: 1,
         component: ['S', 'M']
-    }
+    },
+    {
+        name: 'Align Weapon',
+        variations: [
+            {
+                name: '',
+                effect: 'Becomes good/evil/lawful/chaotic'
+            }
+        ],
+        castTime: '1sa',
+        duration: '1min/lvl',
+        range: 'Touch',
+        target: [
+            'Weapon'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S', 'DF']
+    },
+    {
+        name: 'Armor Enhancement',
+        variations: [
+            {
+                name: 'Acid / Cold / Electricity / Fire / Sonic Resistance',
+                effect: '+10 damage reduction of that type'
+            },
+            {
+                name: 'Spell Resistance (15)',
+                effect: 'Grants Spell Resistance 15'
+            },
+            {
+                name: 'Wild',
+                effect: 'Armor bonuses preserved while in wild shape'
+            },
+            {
+                name: 'Slick, greater',
+                effect: '+15 Escape Artist'
+            },
+            {
+                name: 'Shadow, greater',
+                effect: '+15 Hide'
+            },
+            {
+                name: 'Silent Moves, greater',
+                effect: '+15 Move Silently'
+            }
+        ],
+        castTime: '1min',
+        duration: '10min/lvl',
+        range: 'Touch',
+        target: [
+            'Armor',
+            'Shield'
+        ],
+        savingThrow: '',
+        spellRes: 'No',
+        level: 2,
+        component: ['S', 'M']
+    },
+    {
+        name: 'Bear\'s Endurance',
+        variations: [
+            {
+                name: '',
+                effect: '+4 Constitution'
+            }
+        ],
+        castTime: '1sa',
+        duration: '1min/lvl',
+        range: 'Touch',
+        target: [
+            'Creature'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S', 'DF']
+    },
+    {
+        name: 'Bull\'s Strength',
+        variations: [
+            {
+                name: '',
+                effect: '+4 Strength'
+            }
+        ],
+        castTime: '1sa',
+        duration: '1min/lvl',
+        range: 'Touch',
+        target: [
+            'Creature'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S', 'DF']
+    },
+    {
+        name: 'Cat\'s Grace',
+        variations: [
+            {
+                name: '',
+                effect: '+4 Dexterity'
+            }
+        ],
+        castTime: '1sa',
+        duration: '1min/lvl',
+        range: 'Touch',
+        target: [
+            'Creature'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S', 'DF']
+    },
+    {
+        name: 'Chill Metal',
+        variations: [
+            {
+                name: '',
+                effect: 'Target that wears or holds metal takes gradual cold damage'
+            }
+        ],
+        castTime: '1sa',
+        duration: '7rd',
+        range: '25ft+2.5ft/lvl',
+        target: [
+            'Armor',
+            'Item'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S', 'DF']
+    },
+    {
+        name: 'Eagle\'s Splendor',
+        variations: [
+            {
+                name: '',
+                effect: '+4 Charisma'
+            }
+        ],
+        castTime: '1sa',
+        duration: '1min/lvl',
+        range: 'Touch',
+        target: [
+            'Creature'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S', 'DF']
+    },
+    {
+        name: 'Fox\'s Cunning',
+        variations: [
+            {
+                name: '',
+                effect: '+4 Intelligence'
+            }
+        ],
+        castTime: '1sa',
+        duration: '1min/lvl',
+        range: 'Touch',
+        target: [
+            'Creature'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S', 'DF']
+    },
+    {
+        name: 'Owl\'s Wisdom',
+        variations: [
+            {
+                name: '',
+                effect: '+4 Wisdom'
+            }
+        ],
+        castTime: '1sa',
+        duration: '1min/lvl',
+        range: 'Touch',
+        target: [
+            'Creature'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S', 'DF']
+    },
+    {
+        name: 'Heat Metal',
+        variations: [
+            {
+                name: '',
+                effect: 'Target that wears or holds metal takes gradual fire damage'
+            }
+        ],
+        castTime: '1sa',
+        duration: '7rd',
+        range: '25ft+2.5ft/lvl',
+        target: [
+            'Armor',
+            'Item'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S', 'DF']
+    },
+    {
+        name: 'Inflict Moderate Damage',
+        variations: [
+            {
+                name: '',
+                effect: 'Deals 2d8+lvl(10) dmg to construct'
+            }
+        ],
+        castTime: '1sa',
+        duration: 'instant',
+        range: 'Touch',
+        target: [
+            'Construct'
+        ],
+        savingThrow: '',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S']
+    },
+    {
+        name: 'Repair Moderate Damage',
+        variations: [
+            {
+                name: '',
+                effect: 'Cures 2d8+lvl(10) dmg to construct'
+            }
+        ],
+        castTime: '1sa',
+        duration: 'instant',
+        range: 'Touch',
+        target: [
+            'Construct'
+        ],
+        savingThrow: '',
+        spellRes: 'No',
+        level: 2,
+        component: ['V', 'S']
+    },
+    {
+        name: 'Toughen Construct',
+        variations: [
+            {
+                name: '',
+                effect: 'Grants +1+0.34/lvl(12) AC to construct'
+            }
+        ],
+        castTime: '1sa',
+        duration: '10min/lvl',
+        range: 'Touch',
+        target: [
+            'Construct'
+        ],
+        savingThrow: '',
+        spellRes: 'Yes',
+        level: 2,
+        component: ['V','S']
+    },
+    {
+        name: 'Weapon Augmentation',
+        variations: [
+            {
+                name: 'Bane',
+                effect: '+2 Enhancement Bonus, +2d6 dmg against designated foe'
+            },
+            {
+                name: 'Defending',
+                effect: 'Convert some Enhancement Bonus to AC'
+            },
+            {
+                name: 'Flaming',
+                effect: '+1d6 Fire dmg'
+            },
+            {
+                name: 'Frost',
+                effect: '+1d6 Cold dmg'
+            },
+            {
+                name: 'Shock',
+                effect: '+1d6 Electricity dmg'
+            },
+            {
+                name: 'Ghost Shock',
+                effect: 'Normal Damage against Incorporeal Creatures'
+            },
+            {
+                name: 'Keen',
+                effect: 'Doubles Crit Range (only Piercing and Slashing)'
+            },
+            {
+                name: 'Ki Focus',
+                effect: 'Allows Use of Ki Attacks through Weapon'
+            },
+            {
+                name: 'Merciful',
+                effect: '+1d6 dmg and nonlethal'
+            },
+            {
+                name: 'Mighty Cleaving',
+                effect: 'Allows +1 Cleave Attempt'
+            },
+            {
+                name: 'Spell Storing',
+                effect: 'Store Spell of max level 3'
+            },
+            {
+                name: 'Throwing',
+                effect: '+10 Range and can be thrown'
+            },
+            {
+                name: 'Thundering',
+                effect: '+1d8/(critdmg-1) sonic damage on crit. Can deafen permanently (DC14 Fortitude)'
+            },
+            {
+                name: 'Vicious',
+                effect: '+2d6 dmg to enemy +1d6 dmg to wielder'
+            }
+        ],
+        castTime: '1min',
+        duration: '10min/lvl',
+        range: 'Touch',
+        target: [
+            'Weapon'
+        ],
+        savingThrow: '',
+        spellRes: 'No',
+        level: 2,
+        component: ['S', 'M']
+    },
 ];
 
-let lvl = 1;
+let lvl =parseInt($('#lvl')[0].value) ;
 
 let columns = [
-    'Name', 'Variations', 'Effect', 'Casting Time', 'Duration', 'Range', 'Target', 'Saving Throw', 'Spell Resistance', 'Components'
+    'Level','Name', 'Variations', 'Effect', 'Casting Time', 'Duration', 'Range', 'Target', 'Saving Throw', 'Spell Resistance', 'Components'
 ]
 
-let centered={
-    
-}
+let centered=['Level', 'Target', 'Saving Throw', 'Spell Resistance', 'Components']
 
 let resistanceIcons={
     'Yes':'far fa-check',
@@ -481,6 +819,20 @@ let unitMap={
     'h':'long'
 }
 
+let levelMap={
+    0:'0',
+    1:'I',
+    2:'II',
+    3:'III',
+    4:'IV',
+    5:'V',
+    6:'VI',
+    7:'VII',
+    8:'VIII'
+}
+
+
+
 $('#lvl').keyup(function(){
     console.log('ch')
     if(!isNaN($('#lvl')[0].value) && ($('#lvl')[0].value!='')){
@@ -508,33 +860,43 @@ function fillTable() {
     let str=''
     str+='<tr>';
     for (let c of columns) {
-        str+='<td>' + c + '</td>'
+        str+='<td'+(centered.indexOf(c)>-1?' class="centered"':'')+'>' + c + '</td>'
     }
     str+='</tr>';
+    let levels=[];
     for (let s of spellList) {
         for (let [i, v] of s.variations.entries()) {
             str+='<tr'+(i==0?' class="first"':'')+'>'
+            console.log(s.level)
+            if(levels[s.level]==null){
+                str+='<td class="centered"><span class="level l' + s.level + '">'+levelMap[s.level]+'</span></td>'
+                levels[s.level]=true;
+            }else{
+                str+='<td class="centered noborder"></td>'
+            }
+            
             str+='<td>' + (i == 0 ? s.name : '') + '</td>'
-            str+='<td>' + v.name + '</td>'
+            str+='<td style="max-width:200px">' + v.name + '</td>'
             let e=parseLvl(v.effect)
-            str+='<td>' + e + '</td>'
+            str+='<td style="max-width:200px">' + e + '</td>'
             str+='<td>' + s.castTime + '</td>'
             let d=parseLvl(s.duration)
             d=getDurationDiv(d);
             str+='<td>' + d + '</td>'
-            str+='<td>' + s.range + '</td>'
+            let r=parseLvl(s.range)
+            str+='<td>' + r + '</td>'
             let targets='';
             for(let t of s.target){
                 targets+='<i class="target '+targetIcons[t]+'"></i>';
             }
-            str+='<td>' + targets + '</td>'
-            str+='<td>' + s.savingThrow + '</td>'
-            str+='<td><i class="resist ' + resistanceIcons[s.spellRes] + '"></i></td>'
+            str+='<td class="centered">' + targets + '</td>'
+            str+='<td class="centered">' + s.savingThrow + '</td>'
+            str+='<td class="centered"><i class="resist ' + resistanceIcons[s.spellRes] + '"></i></td>'
             let comp='';
             for(let c of s.component){
                 comp+='<i class="component '+componentIcons[c]+'"></i>';
             }
-            str+='<td>' + comp + '</td>'
+            str+='<td class="centered">' + comp + '</td>'
             str+='</tr>'
             
         }
@@ -553,7 +915,6 @@ function getDurationDiv(string){
 }
 
 function parseLvl(string){
-    console.log(string)
     n=string.search('lvl')
     while(n>-1){
         let before=string.slice(0,n)
@@ -624,12 +985,7 @@ function parseLvl(string){
                 
                 max=parseInt(num2)
             }
-            console.log('---')
-            console.log(max)
-            console.log(lvl)
-            console.log(parseFloat(num))
             let l=Math.floor(parseFloat(num)*Math.min(max,lvl));
-            console.log(l)
             
             string=before.slice(0,before.length-s-1)+l+unit+after;
             

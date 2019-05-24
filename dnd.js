@@ -760,7 +760,7 @@ let spellList = [
             },
             {
                 name: 'Thundering',
-                effect: '+1d8/(critdmg-1) sonic damage on crit. Can deafen permanently (DC14 Fortitude)'
+                effect: '+1d8/(critmult-1) sonic damage on crit. Can deafen permanently (DC14 Fortitude)'
             },
             {
                 name: 'Vicious',

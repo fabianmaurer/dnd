@@ -440,7 +440,7 @@ let spellList = [
     }
 ];
 
-let lvl = 4;
+let lvl = 1;
 
 let columns = [
     'Name', 'Variations', 'Effect', 'Casting Time', 'Duration', 'Range', 'Target', 'Saving Throw', 'Spell Resistance', 'Components'
@@ -449,11 +449,13 @@ let columns = [
 let targetIcons={
     'Armor':'far fa-helmet-battle',
     'Shield':'far fa-shield',
-    'Sword':'far fa-sword',
-    'Potion':'far fa-potion',
+    'Weapon':'far fa-sword',
+    'Potion':'far fa-flask-potion',
     'Creature':'far fa-male',
     'Scroll':'far fa-scroll',
-    'Item':'far fa-cube'
+    'Item':'far fa-cube',
+    'Construct':'far fa-robot',
+    'Pebbles':'far fa-ball-pile'
 }
 
 let componentIcons={
@@ -464,6 +466,14 @@ let componentIcons={
 }
 
 $('#lvl').keyup(function(){
+    console.log('ch')
+    if(!isNaN($('#lvl')[0].value) && ($('#lvl')[0].value!='')){
+        lvl=parseInt($('#lvl')[0].value);
+        fillTable();
+    }
+})
+
+$('#lvl').change(function(){
     console.log('ch')
     if(!isNaN($('#lvl')[0].value) && ($('#lvl')[0].value!='')){
         lvl=parseInt($('#lvl')[0].value);
@@ -522,6 +532,25 @@ function parseLvl(string){
         let after=string.slice(n+3,string.length)
         let pre=before.charAt(before.length-1)
         if(pre=='+' || pre==' '){
+            let max=Number.MAX_SAFE_INTEGER;
+            if(after.charAt(0)=="("){
+                a=true
+                let num2='';
+                let m=0;
+                for(let i=1;i<after.length;i++){
+                    if(isNaN(after.charAt(i))){
+                        m=i;
+                        break;
+                    }else{
+                        num2+=after.charAt(i);
+                    }
+                }
+
+                after=after.slice(m+1,after.length)
+                
+                max=parseInt(num2)
+            }
+            lvl=Math.min(max,lvl)
             string=before+lvl+after;
         }else if(pre=='/'){
             // skip letters (unit)
@@ -550,9 +579,25 @@ function parseLvl(string){
 
             // check for max lvl
 
+            let max=Number.MAX_SAFE_INTEGER;
+            if(after.charAt(0)=="("){
+                a=true
+                let num2='';
+                let m=0;
+                for(let i=1;i<after.length;i++){
+                    if(isNaN(after.charAt(i))){
+                        m=i;
+                        break;
+                    }else{
+                        num2+=after.charAt(i);
+                    }
+                }
 
-
-
+                after=after.slice(m+1,after.length)
+                
+                max=parseInt(num2)
+            }
+            lvl=Math.min(max,lvl)
             let l=Math.floor(parseFloat(num)*lvl);
             string=before.slice(0,before.length-s-1)+l+unit+after;
         }

@@ -464,6 +464,18 @@ let spellList = [
                 effect: '+10 damage reduction of that type'
             },
             {
+                name: 'Ghost Touch',
+                effect: 'Armor works against incorporeal creatures'
+            },
+            {
+                name: 'Invulnerability',
+                effect: '+5/magic damage reduction'
+            },
+            {
+                name: 'Fortification, moderate',
+                effect: '75% Crit Avoidance'
+            },
+            {
                 name: 'Spell Resistance (15)',
                 effect: 'Grants Spell Resistance 15'
             },
@@ -778,6 +790,175 @@ let spellList = [
         level: 2,
         component: ['S', 'M']
     },
+    {
+        name: 'Armor Enhancement, Greater',
+        variations: [
+            {
+                name: 'Etherealness',
+                effect: 'Allows wearer to become ethereal'
+            },
+            {
+                name: 'Undead Controlling',
+                effect: 'Control up to 26 HD of undead per day (control undead spell)'
+            },
+            {
+                name: 'Fortification, heavy',
+                effect: '100% Crit Avoidance'
+            },
+            {
+                name:'Spell Resistance (19)',
+                effect:'Grants Spell Resistance 19'
+            },
+            {
+                name: 'Acid / Cold / Electricity / Fire / Sonic Resistance, Greater',
+                effect: '+30 damage reduction of that type'
+            }
+        ],
+        castTime: '1min',
+        duration: '10min/lvl',
+        range: 'Touch',
+        target: [
+            'Armor',
+            'Shield'
+        ],
+        savingThrow: '',
+        spellRes: 'No',
+        level: 3,
+        component: ['S', 'M']
+    },
+    {
+        name: 'Construct Energy Ward',
+        variations: [
+            {
+                name: '',
+                effect: 'Construct gain resistance 10 to an energy type'
+            }
+        ],
+        castTime: '1rd',
+        duration: '10min/lvl',
+        range: 'Touch',
+        target: [
+            'Construct'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 3,
+        component: ['S']
+    },
+    {
+        name: 'Inflict Serious Damage',
+        variations: [
+            {
+                name: '',
+                effect: 'Deals 3d8+lvl(15) dmg to construct'
+            }
+        ],
+        castTime: '1sa',
+        duration: 'instant',
+        range: 'Touch',
+        target: [
+            'Construct'
+        ],
+        savingThrow: '',
+        spellRes: 'Yes',
+        level: 3,
+        component: ['V','S']
+    },
+    {
+        name: 'Magic Weapon, Greater',
+        variations: [
+            {
+                name: '',
+                effect: '+0.25/lvl(20) Enhancement Bonus'
+            }
+        ],
+        castTime: '1sa',
+        duration: '1h/lvl',
+        range: '25ft+2.5ft/lvl',
+        target: [
+            'Weapon'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 3,
+        component: ['V', 'S', 'DF']
+    },
+    {
+        name: 'Metamagic Item',
+        variations: [
+            {
+                name: '',
+                effect: 'Apply metamagic feat to a spell trigger item'
+            }
+        ],
+        castTime: '1rd',
+        duration: '1rd/lvl',
+        range: 'Touch',
+        target: [
+            'Item'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 3,
+        component: ['V', 'S']
+    },
+    {
+        name: 'Power Surge',
+        variations: [
+            {
+                name: '',
+                effect: 'Imbue wand with +0.2/lvl temporary charges'
+            }
+        ],
+        castTime: '1sa',
+        duration: '1min/lvl',
+        range: 'Touch',
+        target: [
+            'Wand'
+        ],
+        savingThrow: '',
+        spellRes: 'No',
+        level: 3,
+        component: ['S','XP']
+    },
+    {
+        name: 'Stone Construct',
+        variations: [
+            {
+                name: '',
+                effect: 'Grants damage reduction 10/adamantine to blows, cuts, stabs, slashes. Prevents up to +10/lvl(150) dmg.'
+            }
+        ],
+        castTime: '1rd',
+        duration: '10min/lvl',
+        range: 'Touch',
+        target: [
+            'Construct'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 3,
+        component: ['S','M']
+    },
+    {
+        name: 'Suppress Requirement',
+        variations: [
+            {
+                name: '',
+                effect: 'Remove requirement from item after successful Use Magic Device check.'
+            }
+        ],
+        castTime: '1rd',
+        duration: '10min/lvl',
+        range: 'Touch',
+        target: [
+            'Item'
+        ],
+        savingThrow: 'Will',
+        spellRes: 'Yes',
+        level: 3,
+        component: ['S','M']
+    }
 ];
 
 let lvl =parseInt($('#lvl')[0].value) ;
@@ -802,14 +983,16 @@ let targetIcons={
     'Scroll':'far fa-scroll',
     'Item':'far fa-cube',
     'Construct':'far fa-robot',
-    'Pebbles':'far fa-ball-pile'
+    'Pebbles':'far fa-ball-pile',
+    'Wand':'far fa-wand-magic'
 }
 
 let componentIcons={
     'V':'far fa-lips',
     'S':'far fa-hand-paper',
     'M':'far fa-gem',
-    'DF':'far fa-cross'
+    'DF':'far fa-cross',
+    'XP':'far fa-head-side-brain'
 }
 
 let unitMap={

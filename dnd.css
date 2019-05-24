@@ -20,3 +20,26 @@ body{
     font-size:20px;
     text-align: end;
 }
+
+.dur{
+    display:inline-block;
+    color:white;
+    padding:2px;
+    border-radius:3px;
+}
+
+.dur.instant{
+    background-color:#131e26;
+}
+
+.dur.short{
+    background-color:#f05050;
+}
+
+.dur.medium{
+    background-color:#ff902b;
+}
+
+.dur.long{
+    background-color:#5d9cec;
+}

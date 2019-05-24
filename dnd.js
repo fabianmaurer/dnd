@@ -204,7 +204,7 @@ let spellList = [
             }
         ],
         castTime: '1sa',
-        duration: 'Instant',
+        duration: 'instant',
         range: 'touch',
         target: [
             'Construct'
@@ -465,6 +465,13 @@ let componentIcons={
     'DF':'far fa-cross'
 }
 
+let unitMap={
+    'instant':'instant',
+    'rd':'short',
+    'min':'medium',
+    'h':'long'
+}
+
 $('#lvl').keyup(function(){
     console.log('ch')
     if(!isNaN($('#lvl')[0].value) && ($('#lvl')[0].value!='')){
@@ -504,6 +511,7 @@ function fillTable() {
             str+='<td>' + e + '</td>'
             str+='<td>' + s.castTime + '</td>'
             let d=parseLvl(s.duration)
+            d=getDurationDiv(d);
             str+='<td>' + d + '</td>'
             str+='<td>' + s.range + '</td>'
             let targets='';
@@ -523,6 +531,16 @@ function fillTable() {
         }
     }
     $table.append(str)
+}
+
+function getDurationDiv(string){
+    let types=['instant','rd','min','h']
+    for(let type of types){
+        if(string.search(type)!=-1){
+            return '<div class="dur '+unitMap[type]+'">'+string+'</div>';
+        }
+    }
+    return string;
 }
 
 function parseLvl(string){
@@ -599,7 +617,9 @@ function parseLvl(string){
             }
             lvl=Math.min(max,lvl)
             let l=Math.floor(parseFloat(num)*lvl);
+            
             string=before.slice(0,before.length-s-1)+l+unit+after;
+            
         }
         n=-1
     }

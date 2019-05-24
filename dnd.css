@@ -1,0 +1,16 @@
+body{
+    font-family:Roboto;
+}
+
+#spells{
+    border-collapse:collapse;
+}
+
+#spells td{
+    padding:2px;
+}
+
+#spells .first td{
+    padding-top:6px;
+    border-top:1px solid #ccc;
+}

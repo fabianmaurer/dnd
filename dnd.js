@@ -365,7 +365,7 @@ let spellList = [
         variations: [
             {
                 name: '',
-                effect: '+4+lvl one-time damage reduction'
+                effect: '+4+lvl(10) one-time damage reduction'
             }
         ],
         castTime: '1min',
